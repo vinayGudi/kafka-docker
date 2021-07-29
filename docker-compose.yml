@@ -4,10 +4,12 @@ services:
     image: wurstmeister/zookeeper
     ports:
       - "2181:2181"
+    network_mode: "host"
   kafka:
     build: .
     ports:
       - "9092:9092"
+    network_mode: "host"
     environment:
       DOCKER_API_VERSION: 1.22
       KAFKA_ADVERTISED_HOST_NAME: ${KAFKA_ADVERTISED_HOST_NAME}
